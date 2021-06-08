@@ -13,15 +13,15 @@
     <!-- script -->
     <script src="./js/script.js" defer></script>
 
-    <!-- link to HTML Sanitizer -->
-    <!-- see github repo: https://github.com/jitbit/HtmlSanitizer -->
-    <script src="https://cdn.jsdelivr.net/gh/jitbit/HtmlSanitizer@master/HtmlSanitizer.js" defer></script>
-
 </head>
 
 <body>
 
     <div id="site-wrapper">
+
+        <h1>Dynamic DOM</h1>
+
+        <h3>Type anything in the field, and you'll see what you type appear dynamically on the screen.</h3>
 
         <div class="label-wrapper">
 
@@ -33,11 +33,11 @@
 
         <div class="label-wrapper">
 
-            <input type="submit" class="btn-submit" value="SUBMIT">
+            <input type="submit" class="btn-submit" value="CLEAR FIELD">
 
         </div>
 
-        <div class="userOutput"></div>
+        <div id="userOutput"></div>
 
     </div>
 
