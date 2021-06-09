@@ -1,45 +1,57 @@
 const userInput = document.getElementById('user');
 let userOutput = document.getElementById('userOutput');
 const btn = document.querySelector('.btn-submit');
-let hearts;
+let messageShown = false;
 
-userInput.addEventListener('input', runMe);
+btn.addEventListener('click', () => {
+  if (userInput.value === '') return;
+  messageShown ? resetPage() : runPage();
+});
 
-btn.addEventListener('click', rain);
-
-function runMe() {
+function popText() {
   const message = userInput.value;
+  userOutput.classList.add('popOut');
   userOutput.textContent = message;
+  btn.value = 'Clear field and run again?';
+  messageShown = true;
 }
 
-function clearField() {
-  userInput.value = '';
-  userOutput.textContent = '';
-}
+function runPage() {
+  userInput.readOnly = true;
+  const rainText = setInterval(createText, 300);
 
-function createRain() {
-  const foo = document.createElement('div');
-  foo.classList.add('heart');
-
-  foo.style.left = Math.random() * 100 + '%';
-  foo.style.animationDuration = Math.random() * 2 + 3 + 's';
-
-  if (userInput.value) {
-    foo.textContent = userInput.value;
-  } else {
-    foo.textContent = 'hello mate!';
-  }
-
-  document.body.appendChild(foo);
+  popText();
 
   setTimeout(() => {
-    foo.remove();
+    clearTimeout(rainText);
   }, 5000);
 }
 
-function rain() {
-  const runRain = setInterval(createRain, 300);
+function resetPage() {
+  userInput.readOnly = false;
+  userInput.value = '';
+  userOutput.textContent = '';
+  btn.value = 'MAKE IT RAIN';
+  userOutput.classList.remove('popOut');
+  messageShown = false;
+}
+
+function createText() {
+  const message = document.createElement('div');
+  message.classList.add('user-message');
+
+  message.style.left = Math.random() * 100 + '%';
+  message.style.animationDuration = Math.random() * 2 + 3 + 's';
+
+  if (userInput.value) {
+    message.textContent = userInput.value;
+  } else {
+    message.textContent = 'hello mate!';
+  }
+
+  document.body.appendChild(message);
+
   setTimeout(() => {
-    clearTimeout(runRain);
-  }, 3000);
+    message.remove();
+  }, 5000);
 }

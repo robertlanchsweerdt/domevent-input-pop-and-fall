@@ -5,6 +5,9 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 #site-wrapper {
@@ -17,7 +20,7 @@ body {
   align-items: center;
 }
 
-.heart {
+.user-message {
   position: fixed;
   top: 0;
   animation: rainFall 3s linear forwards;
@@ -29,5 +32,28 @@ body {
   }
   to {
     transform: translateY(105vh);
+  }
+}
+
+#userOutput {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popOut {
+  animation: pop 3s ease-in-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(100);
+  }
+  100% {
+    transform: scale(0);
   }
 }
