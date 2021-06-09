@@ -18,21 +18,51 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  padding: 2rem;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h3 {
+  display: inline-block;
+  width: min(600px, 100%);
+}
+
+input {
+  height: 3em;
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.btn {
+  border: none;
+  margin-top: 1rem;
+  background-color: maroon;
+  color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(209, 34, 34);
+}
+
+.message-container {
+  text-align: center;
+  padding: 1.2em;
+  border: groove 10px maroon;
 }
 
 .user-message {
   position: fixed;
+  font-size: 1.2rem;
+  color: purple;
   top: 0;
   animation: rainFall 3s linear forwards;
-}
-
-@keyframes rainFall {
-  from {
-    transform: translateY(-2px);
-  }
-  to {
-    transform: translateY(105vh);
-  }
 }
 
 #userOutput {
@@ -44,6 +74,15 @@ body {
 
 .popOut {
   animation: pop 3s ease-in-out forwards;
+}
+
+@keyframes rainFall {
+  from {
+    transform: translateY(-2px);
+  }
+  to {
+    transform: translateY(105vh);
+  }
 }
 
 @keyframes pop {

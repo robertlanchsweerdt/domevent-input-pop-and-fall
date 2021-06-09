@@ -1,6 +1,6 @@
 const userInput = document.getElementById('user');
 let userOutput = document.getElementById('userOutput');
-const btn = document.querySelector('.btn-submit');
+const btn = document.querySelector('.btn');
 let messageShown = false;
 
 btn.addEventListener('click', () => {
