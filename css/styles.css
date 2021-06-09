@@ -16,3 +16,18 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.heart {
+  position: fixed;
+  top: 0;
+  animation: rainFall 3s linear forwards;
+}
+
+@keyframes rainFall {
+  from {
+    transform: translateY(-2px);
+  }
+  to {
+    transform: translateY(105vh);
+  }
+}

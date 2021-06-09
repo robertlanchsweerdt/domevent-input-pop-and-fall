@@ -1,13 +1,11 @@
 const userInput = document.getElementById('user');
 let userOutput = document.getElementById('userOutput');
 const btn = document.querySelector('.btn-submit');
+let hearts;
 
 userInput.addEventListener('input', runMe);
 
-btn.addEventListener('click', () => {
-  clearField();
-  rainHearts();
-});
+btn.addEventListener('click', rain);
 
 function runMe() {
   const message = userInput.value;
@@ -19,17 +17,29 @@ function clearField() {
   userOutput.textContent = '';
 }
 
-function createHearts() {
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-  heart.textContent = '❤️';
+function createRain() {
+  const foo = document.createElement('div');
+  foo.classList.add('heart');
 
-  document.body.appendChild(heart);
+  foo.style.left = Math.random() * 100 + '%';
+  foo.style.animationDuration = Math.random() * 2 + 3 + 's';
+
+  if (userInput.value) {
+    foo.textContent = userInput.value;
+  } else {
+    foo.textContent = 'hello mate!';
+  }
+
+  document.body.appendChild(foo);
+
+  setTimeout(() => {
+    foo.remove();
+  }, 5000);
 }
 
-function rainHearts() {
-  const runInterval = setInterval(createHearts, 300);
+function rain() {
+  const runRain = setInterval(createRain, 300);
   setTimeout(() => {
-    clearInterval(runInterval);
-  }, 5000);
+    clearTimeout(runRain);
+  }, 3000);
 }
