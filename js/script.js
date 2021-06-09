@@ -8,6 +8,13 @@ btn.addEventListener('click', () => {
   messageShown ? resetPage() : runPage();
 });
 
+userInput.addEventListener('keyup', (e) => {
+  if (e.key === 'Enter') {
+    if (userInput.value === '') return;
+    messageShown ? resetPage() : runPage();
+  }
+});
+
 function popText() {
   const message = userInput.value;
   userOutput.classList.add('popOut');
